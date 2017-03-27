@@ -10,7 +10,7 @@ from channels import route
 # }
 
 channel_routing = [
-    route("websocket", consumers.ws_connect),
+    route("http.request", consumers.ws_connect, path=r'^new_socket/chat/$'),
     route("websocket.connect", consumers.ws_connect),
 
     # Called when WebSockets get sent a data frame
