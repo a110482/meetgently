@@ -10,13 +10,13 @@ log = logging.getLogger(__name__)
 
 @channel_session
 def ws_connect(message):
+    print "==socket=="
     # Extract the room from the message. This expects message.path to be of the
     # form /chat/{label}/, and finds a Room if the message path is applicable,
     # and if the Room exists. Otherwise, bails (meaning this is a some othersort
     # of websocket). So, this is effectively a version of _get_object_or_404.
     try:
         prefix, label = message['path'].decode('ascii').strip('/').split('/')
-        print "==socket=="
         print message
         if prefix != 'new_socket':
             log.debug('invalid ws path=%s', message['path'])
