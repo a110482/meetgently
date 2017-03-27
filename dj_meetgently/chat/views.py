@@ -22,6 +22,7 @@ def new_room(request):
             new_room = Room.objects.create(label=label)
     return redirect(chat_room, label=label)
 
+
 def chat_room(request, label):
     """
     Room view - show the room, with latest messages.
@@ -33,8 +34,8 @@ def chat_room(request, label):
     room, created = Room.objects.get_or_create(label=label)
 
     # We want to show the last 50 messages, ordered most-recent-last
-    messages = reversed(room.messages.order_by('-timestamp')[:50])
-
+    #messages = reversed(room.messages.order_by('-timestamp')[:50])
+    messages = None
     return render(request, "chat/room.html", {
         'room': room,
         'messages': messages,

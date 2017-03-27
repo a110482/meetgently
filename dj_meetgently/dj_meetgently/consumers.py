@@ -15,8 +15,10 @@ def ws_connect(message):
     # and if the Room exists. Otherwise, bails (meaning this is a some othersort
     # of websocket). So, this is effectively a version of _get_object_or_404.
     try:
-        sss, prefix, label = message['path'].decode('ascii').strip('/').split('/')
-        if prefix != 'chat':
+        prefix, label = message['path'].decode('ascii').strip('/').split('/')
+        print "==socket=="
+        print message
+        if prefix != 'new_socket':
             log.debug('invalid ws path=%s', message['path'])
             return
         room = Room.objects.get(label=label)

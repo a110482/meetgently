@@ -1,10 +1,11 @@
 /**
  * Created by DennisKao on 2017/3/26.
  */
+
 $(function() {
     // When we're using HTTPS, use WSS too.
     var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
-    var chatsock = new ReconnectingWebSocket(ws_scheme + '://' + window.location.host + "/new_socket/chat" + window.location.pathname);
+    var chatsock = new ReconnectingWebSocket('wss://' + window.location.host + "/new_socket/chat");
 
     chatsock.onmessage = function (message) {
         var data = JSON.parse(message.data);
@@ -33,4 +34,4 @@ $(function() {
         $("#message").val('').focus();
         return false;
     });
-}
+})
