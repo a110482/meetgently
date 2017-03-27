@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^$',  views.about, name='about'),
     url(r'^new_socket/admin/', admin.site.urls),
     url(r'^new_socket/new/$', views.new_room, name='new_room'),
-    url(r'^(?P<label>[\w-]{,50})/$', views.chat_room, name='chat_room'),
+    url(r'^new_socket/$', views.chat_room, name='chat_room'),
+    #url(r'^(?P<label>[\w-]{,50})/$', views.chat_room, name='chat_room'),
     #url(r'^new_socket/chat/$', views.chat_room, name='chat_room'),
 ]
