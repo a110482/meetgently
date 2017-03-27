@@ -24,6 +24,7 @@ def new_room(request):
 
 
 def chat_room(request, label):
+    print "eeeeeeeeeee"
     """
     Room view - show the room, with latest messages.
     The template for this view has the WebSocket business to send and stream
