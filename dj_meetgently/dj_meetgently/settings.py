@@ -147,7 +147,7 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "asgi_redis.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+            "hosts": [("localhost", 6379)],
         },
         "ROUTING": "dj_meetgently.routing.channel_routing",
     },
