@@ -43,7 +43,7 @@
         // When we're using HTTPS, use WSS too.
           alert("123");
         //var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
-        var chatsock = new WebSocket('wss://' + window.location.host + "/new_socket/chat/");
+        var chatsock = new WebSocket('ws://' + window.location.host + "/new_socket/chat/");
 
         chatsock.onmessage = function (message) {
             var data = JSON.parse(message.data);
