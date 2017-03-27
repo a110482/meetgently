@@ -23,7 +23,7 @@ def new_room(request):
     return redirect(chat_room, label=label)
 
 
-def chat_room(request, label):
+def chat_room(request):
     print "eeeeeeeeeee"
     """
     Room view - show the room, with latest messages.
@@ -32,6 +32,7 @@ def chat_room(request, label):
     """
     # If the room with the given label doesn't exist, automatically create it
     # upon first visit (a la etherpad).
+    label = "001"
     room, created = Room.objects.get_or_create(label=label)
 
     # We want to show the last 50 messages, ordered most-recent-last
