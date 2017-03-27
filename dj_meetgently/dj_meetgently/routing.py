@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from channels.staticfiles import StaticFilesConsumer
 from . import consumers
 from channels import route
