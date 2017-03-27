@@ -18,5 +18,5 @@ channel_routing = [
 
     # Called when WebSockets disconnect
     route("websocket.disconnect", consumers.ws_disconnect),
-    route()
+
 ]
