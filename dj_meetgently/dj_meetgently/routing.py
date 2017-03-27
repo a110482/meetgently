@@ -9,7 +9,7 @@ from channels import route
 #     'websocket.disconnect': consumers.ws_disconnect,
 # }
 
-channel_routing = {
+channel_routing = [
     route("websocket.connect", consumers.ws_connect, path=r'^new_socket/chat/$'),
 
     # Called when WebSockets get sent a data frame
@@ -17,4 +17,4 @@ channel_routing = {
 
     # Called when WebSockets disconnect
     route("websocket.disconnect", consumers.ws_disconnect),
-}
+]
