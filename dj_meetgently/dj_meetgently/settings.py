@@ -149,6 +149,6 @@ CHANNEL_LAYERS = {
         "CONFIG": {
             "hosts": [("localhost", 6379)],
         },
-        "ROUTING": "dj_meetgently.routing.channel_routin",
+        "ROUTING": "dj_meetgently.routing.channel_routing",
     },
 }
