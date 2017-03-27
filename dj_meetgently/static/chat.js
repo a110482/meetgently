@@ -5,7 +5,7 @@
 $(function() {
     // When we're using HTTPS, use WSS too.
     var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
-    var chatsock = new ReconnectingWebSocket('wss://' + window.location.host + "/new_socket/chat");
+    var chatsock = new ReconnectingWebSocket('wss://' + window.location.host + "/new_socket/chat/");
 
     chatsock.onmessage = function (message) {
         var data = JSON.parse(message.data);
