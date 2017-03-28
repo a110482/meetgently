@@ -18,7 +18,7 @@ def ws_connect(message):
         'accept': True
     })
     print message.reply_channel
-    print message.channel_session_user_from_http.user
+    print channel_session_user_from_http.func_name
 
 
 
