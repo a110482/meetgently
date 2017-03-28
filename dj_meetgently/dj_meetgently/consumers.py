@@ -18,9 +18,8 @@ def ws_connect(message):
         'accept': True
     })
     print message.reply_channel
-    message.reply_channel.send({
-        'accept': True
-    })
+    print message.channel_session
+
 
 
 @channel_session
