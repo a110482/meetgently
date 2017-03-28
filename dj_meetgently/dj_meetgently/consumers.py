@@ -20,7 +20,7 @@ def ws_connect(message):
         'accept': True
     })
     print message.reply_channel
-    print message.channel_session.key
+    print message.channel_session['key']
 
 
 
