@@ -19,8 +19,9 @@ def ws_connect(message):
     message.reply_channel.send({
         'accept': True
     })
-    print message.reply_channel.type
-    print message.user
+    print message.reply_channel
+    print message.channel_session
+
 
 
 
