@@ -18,6 +18,9 @@ def ws_connect(message):
         'accept': True
     })
     print message.reply_channel
+    message.reply_channel.send({
+        'accept': True
+    })
 
 
 @channel_session
