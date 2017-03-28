@@ -23,7 +23,7 @@ def ws_connect(message):
     time.sleep(1)
     message.reply_channel.send({"text": "123"})
     print message.reply_channel
-    message.channel_session['rome'] = "001"
+    message.channel_session['room'] = "001"
     Group('chat').add(message.reply_channel)
     Group('chat-001').send({"text": "tttt"})
 
