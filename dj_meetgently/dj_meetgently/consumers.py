@@ -21,7 +21,7 @@ def ws_connect(message):
         'accept': True
     })
     time.sleep(1)
-    message.reply_channel.send("123")
+    message.reply_channel.send({"123": "123"})
     print message.reply_channel
     message.channel_session['rome'] = "001"
     Group('chat').add(message.reply_channel)
