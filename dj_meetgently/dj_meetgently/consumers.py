@@ -3,10 +3,12 @@ import json
 import logging
 from channels import Group
 from channels.sessions import channel_session
+from asgi_redis.local import RedisLocalChannelLayer
+
 #from chat.models import Room
 
-
 from channels.auth import channel_session_user_from_http, channel_session_user
+
 log = logging.getLogger(__name__)
 
 
@@ -17,8 +19,10 @@ def ws_connect(message):
     message.reply_channel.send({
         'accept': True
     })
-    print message.reply_channel
+    print message.reply_channel.type
     print message.user
+
+
 
 
 
