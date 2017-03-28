@@ -46,6 +46,8 @@
         var chatsock = new WebSocket('ws://www.paeban.com/chat/');
 
         chatsock.onmessage = function (message) {
+            console.log("ws_msg");
+            console.log(message);
             var data = JSON.parse(message.data);
             console.log(data);
             var chat = $("#chat")
