@@ -3,11 +3,14 @@ import json
 import logging
 from channels import Group
 from channels.sessions import channel_session
-from chat.models import Room
+#from chat.models import Room
 
+
+from channels.auth import channel_session_user_from_http, channel_session_user
 log = logging.getLogger(__name__)
 
 
+@channel_session_user_from_http
 @channel_session
 def ws_connect(message):
     print "==socket=="
@@ -18,28 +21,7 @@ def ws_connect(message):
     # form /chat/{label}/, and finds a Room if the message path is applicable,
     # and if the Room exists. Otherwise, bails (meaning this is a some othersort
     # of websocket). So, this is effectively a version of _get_object_or_404.
-    try:
-        prefix, label = message['path'].decode('ascii').strip('/').split('/')
-        print message
-        if prefix != 'new_socket':
-            log.debug('invalid ws path=%s', message['path'])
-            return
-        room = Room.objects.get(label=label)
-    except ValueError:
-        log.debug('invalid ws path=%s', message['path'])
-        return
-    except Room.DoesNotExist:
-        log.debug('ws room does not exist label=%s', label)
-        return
-
-    log.debug('chat connect room=%s client=%s:%s',
-              room.label, message['client'][0], message['client'][1])
-
-    # Need to be explicit about the channel layer so that testability works
-    # This may be a FIXME?
-    Group('chat-' + label, channel_layer=message.channel_layer).add(message.reply_channel)
-
-    message.channel_session['room'] = room.label
+    print message.reply_channel
 
 
 @channel_session
