@@ -4,6 +4,7 @@ import logging
 from channels import Group
 from channels.sessions import channel_session
 from asgi_redis.local import RedisLocalChannelLayer
+import time
 
 #from chat.models import Room
 
@@ -19,6 +20,8 @@ def ws_connect(message):
     message.reply_channel.send({
         'accept': True
     })
+    time.sleep(1)
+    message.reply_channel.send("123")
     print message.reply_channel
     message.channel_session['rome'] = "001"
     Group('chat').add(message.reply_channel)
